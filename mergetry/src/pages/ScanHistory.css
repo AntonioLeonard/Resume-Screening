@@ -1,0 +1,188 @@
+/*
+ * ═══════════════════════════════════════════════════════════════
+ *  ScanHistory.css  —  styles for ScanHistory.jsx only
+ * ───────────────────────────────────────────────────────────────
+ *  Imported by:  ScanHistory.jsx
+ *  Base styles:  global.css (via App.jsx)
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ── Header ── */
+.sh__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.sh__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+.sh__sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Controls ── */
+.sh__controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sh__search-wrap {
+  position: relative;
+}
+.sh__search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+.sh__search {
+  height: 38px;
+  padding: 0 14px 0 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  width: 220px;
+  outline: none;
+  transition: box-shadow 0.15s;
+}
+.sh__search:focus { box-shadow: 0 0 0 2px var(--purple); }
+
+.sh__sort-btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.sh__sort-btn:hover { background: var(--input-bg); }
+
+/* ── Stats strip ── */
+.sh__stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sh__stat-card {
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+.sh__stat-icon  { font-size: 22px; line-height: 1; }
+.sh__stat-value { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1.1; }
+.sh__stat-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+/* ── Table card ── */
+.sh__table-card {
+  margin-bottom: 16px;
+  padding: 0;
+  overflow: hidden;
+}
+.sh__table-scroll { overflow-x: auto; width: 100%; }
+
+.sh__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font);
+  font-size: 13px;
+  min-width: 580px;
+}
+.sh__table thead tr {
+  background: var(--input-bg);
+}
+.sh__table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.sh__table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: middle;
+}
+.sh__table tbody tr:last-child td { border-bottom: none; }
+.sh__table tbody tr:hover         { background: var(--purple-hover-bg); }
+
+.sh__badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.sh__job    { font-weight: 600; }
+.sh__skills { color: var(--muted); }
+.sh__date   { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+.sh__empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 36px 0;
+  font-size: 14px;
+}
+
+/* ── Action buttons ── */
+.sh__actions { display: flex; gap: 6px; }
+.sh__action-btn {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.sh__action-btn:hover        { background: var(--input-bg); }
+.sh__action-btn--del:hover   { background: #fee2e2; }
+
+/* ── Quick actions ── */
+.sh__quick {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.sh__quick-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+.sh__quick-btns { display: flex; gap: 10px; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .sh__stats       { gap: 8px; }
+  .sh__stat-card   { min-width: 80px; padding: 12px; }
+  .sh__stat-value  { font-size: 18px; }
+  .sh__quick       { flex-direction: column; align-items: flex-start; }
+}

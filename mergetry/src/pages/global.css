@@ -1,0 +1,364 @@
+/*
+ * ═══════════════════════════════════════════════════════════════
+ *  global.css
+ *  Shared foundation for ALL modules in Resume Analyzer
+ * ───────────────────────────────────────────────────────────────
+ *  Sections:
+ *    1. Google Font
+ *    2. Light theme CSS variables  (:root)
+ *    3. Dark theme overrides       ([data-theme="dark"])
+ *    4. Reset
+ *    5. App root & body
+ *    6. Page wrapper layout
+ *    7. Main content area
+ *    8. Card component
+ *    9. Buttons
+ *   10. Progress bar
+ *   11. Sidebar base + Sidebar.css classes
+ *   12. Responsive breakpoints
+ *
+ *  Imported by:  App.jsx  (once, at root level)
+ *  Used by:      Sidebar, Result, ScanHistory, Settings,
+ *                Dashboard, ResumeUpload
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ── 1. Google Font ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ── 2. Light theme variables ───────────────────────────────── */
+:root {
+  /* sidebar */
+  --sidebar-width:        250px;
+  --sidebar-bg:           #eef2f6;
+  --sidebar-border:       #dcdcdc;
+
+  /* brand purple */
+  --purple:               #8b5cf6;
+  --purple-dark:          #7c3aed;
+  --purple-hover-bg:      #ede9fe;
+  --purple-active-bg:     #8b5cf6;
+  --purple-active-text:   #ffffff;
+
+  /* gradients */
+  --grad:                 linear-gradient(90deg, #2585f3, #8b5cf6);
+
+  /* page */
+  --page-bg:              #f4f6fb;
+
+  /* text */
+  --text:                 #1a1d1f;
+  --muted:                #6b7280;
+
+  /* cards / inputs */
+  --white:                #ffffff;
+  --border:               #e5e7eb;
+  --card-radius:          16px;
+  --card-shadow:          0 2px 16px rgba(0,0,0,0.07);
+  --input-bg:             #f3f4f6;
+
+  /* action colours */
+  --primary:              #2585f3;
+  --primary-dark:         #0b42e9;
+
+  /* font */
+  --font:                 'Poppins', sans-serif;
+}
+
+/* ── 3. Dark theme overrides ────────────────────────────────── */
+[data-theme="dark"] {
+  --sidebar-bg:           #1e1b2e;
+  --sidebar-border:       #2d2a45;
+
+  --page-bg:              #13111f;
+
+  --text:                 #f1f0ff;
+  --muted:                #a09cc4;
+
+  --white:                #1a1730;
+  --border:               #2d2a45;
+  --card-shadow:          0 2px 16px rgba(0,0,0,0.35);
+  --input-bg:             #2a2740;
+
+  --purple-hover-bg:      rgba(139,92,246,0.2);
+}
+
+/* ── 4. Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 5. App root & body ─────────────────────────────────────── */
+html, body, #root {
+  height: 100%;
+  font-family: var(--font);
+  background: var(--page-bg);
+  color: var(--text);
+  transition: background 0.25s, color 0.25s;
+}
+
+.app-root {
+  min-height: 100vh;
+  background: var(--page-bg);
+  transition: background 0.25s;
+}
+
+/* ── 6. Page wrapper ────────────────────────────────────────── */
+/*   Sidebar sits on the left, main-content fills the rest       */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--page-bg);
+  transition: background 0.25s;
+}
+
+/* ── 7. Main content area ───────────────────────────────────── */
+.main-content {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+  min-width: 0;
+  background: var(--page-bg);
+  transition: background 0.25s;
+}
+
+/* ── 8. Card ────────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+/* ── 9. Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  height: 42px;
+  border-radius: 12px;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--grad);
+  color: #ffffff;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--purple);
+  color: var(--purple);
+}
+.btn-outline:hover { background: var(--purple); color: #ffffff; }
+
+/* ── 10. Progress bar ───────────────────────────────────────── */
+.progress-bar-bg {
+  height: 10px;
+  background: var(--input-bg);
+  border-radius: 99px;
+  overflow: hidden;
+  width: 100%;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--grad);
+  border-radius: 99px;
+  transition: width 0.7s ease;
+}
+
+/* ── 11. Sidebar ────────────────────────────────────────────── */
+/*
+ * Class names used by Sidebar.jsx
+ * Sidebar.jsx imports Sidebar.css which imports this file
+ */
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 14px 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+  transition: width 0.25s ease, background 0.25s;
+}
+
+/* Brand row */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding: 0 2px;
+}
+.sidebar__logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Purple rounded square containing the robot icon */
+.sidebar__logo-box {
+  width: 36px;
+  height: 36px;
+  background: var(--purple);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 20px;
+}
+.sidebar__brand-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* Collapse / expand chevron button */
+.sidebar__toggle {
+  background: none;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  flex-shrink: 0;
+  padding: 0;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.sidebar__toggle:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+  background: var(--purple-hover-bg);
+}
+
+/* Nav */
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+/* Nav item (button) */
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sidebar__nav-item:hover {
+  background: var(--purple-hover-bg);
+  color: var(--purple-dark);
+}
+/* Active state — solid purple */
+.sidebar__nav-item.active {
+  background: var(--purple-active-bg);
+  color: var(--purple-active-text);
+}
+/* Icon inside nav item */
+.sidebar__nav-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  line-height: 1;
+}
+
+/* User profile at bottom */
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--sidebar-border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+.sidebar__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sidebar__user-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sidebar__user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar__user-email {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 12. Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 210px; }
+  .main-content { padding: 20px 16px; }
+}
+@media (max-width: 650px) {
+  .page-wrapper   { flex-direction: column; }
+  .sidebar        { width: 100% !important; height: auto; position: relative;
+                    padding: 12px 10px; flex-direction: row; flex-wrap: wrap; }
+  .sidebar__brand { margin-bottom: 0; }
+  .sidebar__nav   { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+  .sidebar__nav-item { font-size: 12px; padding: 8px 10px; }
+  .sidebar__user  { border-top: none; padding-top: 0; margin-top: 0; }
+  .main-content   { padding: 14px 10px; }
+}

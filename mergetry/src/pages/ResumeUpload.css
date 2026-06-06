@@ -1,0 +1,185 @@
+/* pages/ResumeUpload.css */
+
+.upload-container {
+  padding: 32px 40px;
+  font-family: "Poppins", sans-serif;
+  width: 100%; /* Forces the container to fill all available space */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Page Headers ---------- */
+.upload-header-section {
+  margin-bottom: 32px;
+}
+
+.upload-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1d1f;
+  margin: 0 0 8px 0;
+}
+
+.upload-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* ---------- Main White Box ---------- */
+.upload-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  width: 100%; /* Ensures the white box stretches edge-to-edge */
+  box-sizing: border-box;
+}
+
+/* ---------- Section Headers (Reusable) ---------- */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-icon {
+  color: #2563eb;
+  margin-top: 2px;
+}
+
+.section-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-text h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.section-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ---------- Drag & Drop Area ---------- */
+.drop-area {
+  width: 100%; /* Fills the width of the stretched white box */
+  min-height: 260px; 
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+.drop-area h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin: 8px 0 0;
+}
+
+.drop-area h3 {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.browse-btn {
+  padding: 10px 24px;
+  border: 1px solid #3b82f6;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #2563eb;
+  background: white;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.browse-btn:hover {
+  background: #eff6ff;
+}
+
+.selected-file-text {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #16a34a;
+}
+
+/* ---------- Text Area ---------- */
+.job-textarea {
+  width: 100%; /* Fills the width of the stretched white box */
+  min-height: 180px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 15px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.job-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #fff;
+}
+
+/* ---------- Action Button ---------- */
+.analyze-btn {
+  width: 100%;
+  height: 52px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.analyze-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Results Box ---------- */
+.result-box {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.result-box h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #166534;
+}
+
+.result-box p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #1f2937;
+  line-height: 1.5;
+}

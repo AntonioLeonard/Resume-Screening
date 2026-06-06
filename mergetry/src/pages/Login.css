@@ -1,0 +1,99 @@
+.login-screen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1b2e; /* Dark theme variable for page bg, or a specific darker color */
+    color: var(--text);
+    transition: background 0.25s, color 0.25s;
+}
+
+[data-theme="light"] .login-screen {
+  background-color: var(--page-bg); /* Use page-bg for light theme background */
+}
+
+.login-form-wrapper {
+    max-width: 440px;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-form-top h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.login-form-top p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-sizing: border-radius;
+}
+
+.input-group input:focus {
+    border-color: var(--purple);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+.forgot-password a {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.forgot-password a:hover {
+    color: var(--purple);
+}
+
+.login-btn {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: #e74c3c;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+}

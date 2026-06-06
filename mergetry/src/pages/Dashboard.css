@@ -1,0 +1,162 @@
+/* pages/Dashboard.css */
+
+.dashboard-container {
+  padding: 32px 40px;
+  font-family: "Poppins", sans-serif;
+  max-width: 1400px; /* Prevents stretching too wide on massive monitors */
+  box-sizing: border-box;
+}
+
+.dashboard-title {
+  font-weight: 700;
+  font-size: 32px; /* Downsized from 50px */
+  color: #1a1d1f;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.dashboard-subtitle {
+  font-size: 16px; /* Downsized from 36px */
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+/* ---------- Top Cards Area ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-icon-wrapper {
+  width: 56px;  /* Downsized from 200px */
+  height: 56px; /* Downsized from 200px */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.stat-value {
+  font-weight: 600;
+  font-size: 32px; /* Downsized from 42px */
+  color: #1a1d1f;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 15px; /* Downsized from 24px */
+  color: #666;
+  font-weight: 500;
+}
+
+/* ---------- Bottom Sections ---------- */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Split into 2 columns on standard laptop/desktop screens */
+@media (min-width: 900px) {
+  .bottom-grid {
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+.content-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  min-height: 320px; /* Replaces the hard-coded 750px */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #1a1d1f;
+  font-size: 20px; /* Downsized from 42px */
+  font-weight: 600;
+}
+
+/* ---------- Chart Styling ---------- */
+.chart-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  min-height: 200px;
+  padding-top: 10px;
+}
+
+.chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, #2563eb, #60a5fa);
+  border-radius: 6px 6px 0 0; /* Rounds only the top corners of the bar */
+  min-height: 10px; /* Ensures bars with 0 value still show slightly */
+}
+
+/* ---------- Recent Activity Styling ---------- */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-size: 16px; /* Downsized from 32px */
+}
+
+.empty-state p {
+  margin: 4px 0;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activity-item {
+  background: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1d1f;
+}
+
+.activity-date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.activity-badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+}

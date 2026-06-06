@@ -1,0 +1,100 @@
+/* Tooltip shown when sidebar is collapsed (via [title] attribute) */
+.sidebar__nav-item[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 70px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999;
+  font-family: var(--font);
+}
+.sidebar__nav-item {
+  position: relative;
+}
+
+/* Chevron SVG smooth rotate */
+.sidebar__chevron {
+  display: block;
+  transition: transform 0.25s ease;
+}
+.sidebar__chevron--rotated {
+  transform: rotate(-90deg);
+}
+
+/* ── Popout Logout Menu Additions ──────────────────────────────── */
+.sidebar__user-container {
+  position: relative;
+}
+
+.sidebar__user {
+  border-radius: 12px;
+  padding: 11px 12px 11px 12px;
+  margin-right: -4px; 
+}
+.sidebar__user:hover {
+  background-color: rgba(237, 233, 254, 0.1); 
+}
+
+.sidebar__popout {
+  position: absolute;
+  bottom: 60px; 
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 101; 
+  font-family: var(--font);
+  box-sizing: border-radius;
+}
+
+.sidebar__popout-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  width: 100%;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+.sidebar__popout-item:hover {
+  background-color: var(--purple-hover-bg);
+  color: var(--purple-dark);
+}
+
+.sidebar__popout-item.logout {
+  color: #e74c3c; 
+}
+.sidebar__popout-item.logout:hover {
+  background-color: rgba(231, 76, 60, 0.05); 
+  color: #e74c3c;
+}
+
+[data-theme="dark"] .sidebar__popout {
+  background: #1a1730; 
+  border-color: #2d2a45;
+}
+[data-theme="dark"] .sidebar__popout-item:hover {
+  background-color: rgba(139, 92, 246, 0.15); 
+}
+[data-theme="dark"] .sidebar__popout-item.logout:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}

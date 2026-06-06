@@ -1,0 +1,177 @@
+/*
+ * ═══════════════════════════════════════════════════════════════
+ *  Settings.css  —  styles for Settings.jsx only
+ * ───────────────────────────────────────────────────────────────
+ *  Imported by:  Settings.jsx
+ *  Base styles:  global.css (via App.jsx)
+ *  Dark theme:   [data-theme="dark"] in global.css overrides
+ *                --white, --text, --border, --input-bg automatically
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ── Page header ── */
+.st__page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.st__page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+.st__page-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Toast ── */
+.st__toast {
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #bbf7d0;
+  animation: stFadeIn 0.3s ease;
+}
+@keyframes stFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Main card ── */
+.st__card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Sections ── */
+.st__section {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.st__section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.st__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--purple);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.st__section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.st__section-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Input grid ── */
+.st__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.st__field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.st__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.st__input {
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  transition: box-shadow 0.15s, background 0.25s, color 0.25s, border-color 0.25s;
+}
+.st__input:focus { box-shadow: 0 0 0 2px var(--purple); }
+
+/* ── Pref cards ── */
+.st__prefs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.st__pref-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.st__pref-icon  { font-size: 26px; line-height: 1; }
+.st__pref-info  { display: flex; flex-direction: column; gap: 2px; }
+.st__pref-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.st__pref-desc  { font-size: 11px; color: var(--muted); }
+
+.st__select {
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 12px;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--input-bg);
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.15s, background 0.25s, color 0.25s;
+}
+.st__select:focus { box-shadow: 0 0 0 2px var(--purple); }
+
+/* ── Save row ── */
+.st__save-row {
+  display: flex;
+  justify-content: flex-end;
+}
+.st__save-btn {
+  min-width: 160px;
+  height: 44px;
+  font-size: 14px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .st__grid  { grid-template-columns: 1fr; }
+  .st__prefs { grid-template-columns: 1fr; }
+  .st__section-head { flex-direction: column; align-items: flex-start; }
+}
