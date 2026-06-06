@@ -93,7 +93,8 @@ function ResumeUpload({ navigate, user, setUser, theme, setTheme, analysisData, 
                 formData.append("user_email", user?.email || "test@gmail.com"); 
 
                 try {
-                  const response = await fetch("http://localhost:5000/analyze-resume", {
+                  // ONLY THIS URL WAS CHANGED TO YOUR LIVE BACKEND
+                  const response = await fetch("https://tonyleo123-resume-api.hf.space/analyze-resume", {
                     method: "POST",
                     body: formData, 
                   });

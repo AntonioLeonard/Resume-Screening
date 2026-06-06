@@ -65,7 +65,7 @@ async def analyze_resume(
         # --- C. NEW GENERATION CALL WITH DEMO FALLBACK ---
         try:
             response = client.models.generate_content(
-                model='gemini-1.5-flash',
+                model='gemini-1.5-flash-latest',
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
