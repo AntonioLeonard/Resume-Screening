@@ -17,9 +17,16 @@ load_dotenv()
 
 # 2. Initialize FastAPI & CORS
 app = FastAPI()
+
+# Add your Vercel URL here
+origins = [
+    "https://resume-screening-kappa.vercel.app", 
+    "http://localhost:5173" # Keep this for local testing
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], 
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,7 +72,7 @@ async def analyze_resume(
         # --- C. NEW GENERATION CALL WITH DEMO FALLBACK ---
         try:
             response = client.models.generate_content(
-                model='gemini-1.5-flash-latest',
+                model='gemini-1.5-flash',
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
