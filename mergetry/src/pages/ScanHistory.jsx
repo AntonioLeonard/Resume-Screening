@@ -34,7 +34,9 @@ export default function ScanHistory({ navigate, user, setAnalysisData }) {
   useEffect(() => {
     const email = user?.email || "harini@gmail.com";
     
-    fetch(`http://localhost:5000/scan-history?user_email=${email}`)
+    // REPLACE your old fetch line with this one:
+    const timestamp = new Date().getTime();
+    fetch(`https://tonyleo123-resume-api.hf.space/scan-history?user_email=${email}&_=${timestamp}`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
@@ -54,7 +56,34 @@ export default function ScanHistory({ navigate, user, setAnalysisData }) {
 
   const stats = buildStats(scans);
 
-  const deleteRow = (id) => setScans(prev => prev.filter(s => s.id !== id));
+  // ... (existing code: stats = buildStats(scans);)
+
+  // REPLACE the old deleteRow with this one:
+  const deleteRow = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this scan?")) return;
+
+    try {
+      const response = await fetch(`https://tonyleo123-resume-api.hf.space/delete-scan/${id}`, {
+        method: "DELETE"
+      });
+      
+      if (response.ok) {
+        // Remove from local state so it disappears from the screen instantly
+        setScans(prev => prev.filter(s => s.id !== id));
+        
+        // ADD THIS: Clear the analysis view if the deleted item was the one being viewed
+        if (analysisData?.id === id) {
+          setAnalysisData(null);
+        }
+      } else {
+        alert("Failed to delete from database.");
+      }
+    } catch (err) {
+      console.error("Error deleting scan:", err);
+      alert("Failed to delete.");
+    }
+  };
+
 
   return (
     <div className="page-wrapper">

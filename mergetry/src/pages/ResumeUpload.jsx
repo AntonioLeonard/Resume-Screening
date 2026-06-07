@@ -101,6 +101,9 @@ function ResumeUpload({ navigate, user, setUser, theme, setTheme, analysisData, 
 
                   const data = await response.json();
 
+                  // ADD THIS LINE:
+                  setAnalysisData({ ...data, name: resume.name, job: "Analyzed Role" }); 
+
                   setScore(data.score);
                   setSkills(data.skillsFound);
                   setSuggestions(data.suggestions);
